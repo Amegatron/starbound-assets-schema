@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/items/currency",
+  "$comment": "TODO: check pickup sound amounts",
+  "title": "In-game currency",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "currency": {
+      "type": "string"
+    },
+    "value": {
+      "type": "integer"
+    },
+    "pickupSoundsSmall": {
+      "type": "array",
+      "description": "Pool of sounds on money pickup for small amounts ( < smallStackLimit ?)",
+      "items": {
+        "$ref": "/core/types#sound-ref"
+      }
+    },
+    "pickupSoundsMedium": {
+      "type": "array",
+      "description": "Pool of sounds on money pickup for medium amounts ( < mediumStackLimit ?)",
+      "items": {
+        "$ref": "/core/types#sound-ref"
+      }
+    },
+    "pickupSoundsLarge": {
+      "type": "array",
+      "description": "Pool of sounds on money pickup for large amounts ( > mediumStackLimit ?)",
+      "items": {
+        "$ref": "/core/types#sound-ref"
+      }
+    },
+    "smallStackLimit": {
+      "type": "integer"
+    },
+    "mediumStackLimit": {
+      "type": "integer"
+    }
+  }
+}

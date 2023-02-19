@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/items/generic",
+  "title": "Generic Item",
+  "description": "",
+  "type": "object",
+  "allOf": [ { "$ref": "/items/item-base"} ],
+  "properties": {
+    "price": {
+      "description": "Price of an item",
+      "type": "integer",
+      "minimum": 0
+    },
+    "itemTags": {
+      "description": "Item tags",
+      "type": "array",
+      "items": {
+        "$ref": "/core/types#item-tag"
+      }
+    },
+    "required": ["itemName", "price", "rarity", "category", "inventoryIcon", "shortdescription"]
+  }
+}

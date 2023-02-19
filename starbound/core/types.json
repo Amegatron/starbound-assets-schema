@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/core/types",
+  "title": "Core Types",
+  "description": "Contains the most common and core types used throughout the assets",
+  "$defs": {
+    "nameIdentifier": {
+      "$anchor": "name-id",
+      "$comment": "TODO: define pattern",
+      "title": "Name Identifier",
+      "description": "Name (id) of miscellaneous things in game (items, objects, effects, etc.)",
+      "type": "string"
+    },
+    "itemRef": {
+      "$anchor": "item-ref",
+      "title": "Item Reference",
+      "description": "Item reference by name",
+      "$ref": "#name-id"
+    },
+    "category": {
+      "$comment": "TODO: make an enum + name-id ?",
+      "$anchor": "category-ref",
+      "title": "Category",
+      "description": "",
+      "$ref": "#name-id"
+    },
+    "itemDescriptorShort": {
+      "$anchor": "item-descriptor-short",
+      "title": "Short Item Descriptor",
+      "description": "Short variant of Item Descriptor (name and count)",
+      "type": "object",
+      "properties": {
+        "item": {
+          "description": "Name of an item",
+          "$ref": "#item-ref"
+        },
+        "count": {
+          "description": "Amount of this item",
+          "type": "integer",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": ["item", "count"]
+    },
+    "itemTag": {
+      "$anchor": "item-tag",
+      "title": "Item Tag",
+      "description": "",
+      "$ref": "#name-id"
+    },
+    "craftingGroup": {
+      "$anchor": "crafting-group",
+      "title": "Crafting Group",
+      "description": "",
+      "$ref": "#name-id"
+    },
+    "imageRef": {
+      "$anchor": "image-ref",
+      "$comment": "TODO: define a pattern",
+      "title": "Image reference",
+      "description": "",
+      "type": "string"
+    },
+    "scriptRef": {
+      "$anchor": "script-ref",
+      "$comment": "TODO: define pattern",
+      "title": "Script Reference",
+      "description": "",
+      "type": "string"
+    },
+    "emoteRef": {
+      "$anchor": "emote-ref",
+      "title": "Emotion Reference",
+      "description": "",
+      "$ref": "#name-id"
+    },
+    "emitterRef": {
+      "$anchor": "emitter-ref",
+      "title": "Emitter Reference",
+      "description": "",
+      "$ref": "#name-id"
+    },
+    "effectRef": {
+      "$anchor": "effect-ref",
+      "title": "Status Effect Reference",
+      "description": "",
+      "$ref": "#name-id"
+    },
+    "effectDescriptor": {
+      "$anchor": "effect-descriptor",
+      "title": "Status Effect Descriptor",
+      "description": "Used to describe applied status effect",
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "effect": {
+              "description": "Name of applied effect",
+              "$ref": "#effect-ref"
+            },
+            "duration": {
+              "description": "Duration of effect",
+              "type" : "integer"
+            }
+          },
+          "required": ["effect"]
+        },
+        {
+          "$ref": "#effect-ref"
+        }
+      ]
+    },
+    "tooltipRef": {
+      "$anchor": "tooltip-ref",
+      "title": "Tooltip Kind reference",
+      "description": "Name of tooltip kind using for displaying pop-up info",
+      "$ref": "#name-id"
+    },
+    "soundRef": {
+      "$anchor": "sound-ref",
+      "$comment": "TODO: define pattern",
+      "title": "Path to sound file",
+      "type": "string"
+    },
+    "materialRef": {
+      "$anchor": "mat-ref",
+      "title": "Material ID",
+      "type": "integer"
+    },
+    "projectileRef": {
+      "$anchor": "projectile-ref",
+      "title": "Projectile Name",
+      "$ref": "#name-id"
+    },
+    "partType":{
+      "$anchor": "part-type",
+      "title": "Type of mech part",
+      "$ref": "#name-id"
+    },
+    "particleRef": {
+      "$anchor": "particle-ref",
+      "title": "Particle Name",
+      "$ref": "#name-id"
+    },
+    "animationRef": {
+      "$anchor": "animation-ref",
+      "description": "Path to an animation",
+      "type": "string"
+    },
+    "vec2f": {
+      "$anchor": "vec2f",
+      "description": "2D vector",
+      "type": "array",
+      "items": {
+        "type": "number"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    }
+  }
+}

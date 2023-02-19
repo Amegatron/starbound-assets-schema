@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/items/item-base",
+  "$comment": "check radioMessageOnPickup",
+  "title": "Base Item",
+  "description": "Basic properties common to all items",
+  "type": "object",
+  "properties": {
+    "itemName": {
+      "description": "Name (id) of an item",
+      "$ref": "/core/types#name-id"
+    },
+    "category": {
+      "description": "Item category",
+      "$ref": "/core/types#category-ref"
+    },
+    "rarity": {
+      "description": "Indicative rarity of an item",
+      "$ref": "/core/enums#rarity"
+    },
+    "inventoryIcon": {
+      "description": "Filename of an inventory icon",
+      "$ref": "/core/types#image-ref"
+    },
+    "description": {
+      "description": "Item description",
+      "type": "string"
+    },
+    "shortdescription": {
+      "description": "User-friendly item name",
+      "type": "string"
+    },
+    "maxStack": {
+      "description": "Max stack size",
+      "type": "integer",
+      "exclusiveMinimum": 0
+    },
+    "learnBlueprintsOnPickup": {
+      "description": "List of other items, learned from picking up this item",
+      "type": "array",
+      "items": {
+        "$ref": "/core/types#item-ref"
+      }
+    }
+  }
+}

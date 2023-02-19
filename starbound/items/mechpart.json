@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/items/mechpart",
+  "title": "Mech Part",
+  "description": "",
+  "type": "object",
+  "allOf": [ { "$ref":  "/items/generic"} ],
+  "properties": {
+    "mechPart": {
+      "type": "array",
+      "items": [
+        {
+          "$ref": "/core/enums#body-part"
+        },
+        {
+          "$ref": "/core/types#part-type"
+        }
+      ],
+      "uniqueItems": true
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/misc/effectsource",
+  "title": "Effect Source",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "allOf": [ { "$ref":  "#effect-params"} ],
+    "kind": {
+      "description": "Effect name",
+      "$ref": "/core/types#name-id"
+    },
+    "definition": {
+      "description": "Definition of the effect",
+      "type": "object",
+      "properties": {
+        "duration": {
+          "description": "Duration of the effect",
+          "type": "number"
+        },
+        "loops" : {
+          "description": "Is it looping",
+          "type": "boolean"
+        },
+        "start": {
+          "description": "Params of the effect at start",
+          "$ref": "#effect-params"
+        },
+        "stop": {
+          "description": "Params of the effect at the end",
+          "$ref": "#effect-params"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "effectParameters": {
+      "$anchor": "effect-params",
+      "description": "Parameters of the effect",
+      "type": "object",
+      "properties": {
+        "particles": {
+          "description": "List of particles",
+          "type": "array",
+          "$comment": "This is an array with a single item, which is an array of particles",
+          "items": [
+            {
+              "type": "array",
+              "items": {
+                "type": "/core/types#particle-ref"
+              }
+            }
+          ]
+        },
+        "sounds": {
+          "description": "List of sounds of the effect",
+          "type": "array",
+          "items": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "/core/types#sound-ref"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
+}

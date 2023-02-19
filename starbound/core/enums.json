@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/core/enums",
+  "title": "Core Starbound Enums",
+  "description": "",
+  "$defs": {
+      "rarity": {
+        "$anchor": "rarity",
+        "title": "Rarity",
+        "description": "Item rarities",
+        "enum": ["Common", "Uncommon", "Rare", "Legendary"]
+      },
+      "bodyPart": {
+        "$anchor": "body-part",
+        "title": "Body Part",
+        "enum": ["arm", "body", "booster", "horn", "legs"]
+      }
+  }
+}

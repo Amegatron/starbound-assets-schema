@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/items/thrownitem",
+  "title": "Thrown Item",
+  "type": "object",
+  "allOf": [ { "$ref":  "/items/generic"} ],
+  "properties": {
+    "category": {
+      "const": "throwableItem"
+    },
+    "ammoUsage": {
+      "description": "Amount consumed when thrown",
+      "type": "integer",
+      "exclusiveMinimum": 0
+    },
+    "edgeTrigger": {
+      "$comment": "TODO: clarify meaning",
+      "type": "boolean"
+    },
+    "windupType": {
+      "type": "number"
+    },
+    "cooldown": {
+      "type": "number"
+    },
+    "projectileType": {
+      "$ref": "/core/types#projectile-ref"
+    },
+    "projectileConfig": {
+      "$ref": "/common/projectile-config"
+    }
+  }
+}

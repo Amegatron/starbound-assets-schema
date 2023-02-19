@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/misc/particle",
+  "title": "Particle",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "description": "Name of the particle definition",
+      "$ref": "/core/types#name-id"
+    },
+    "definition": {
+      "$ref": "#particleDefinition"
+    }
+  },
+  "$defs": {
+    "particleDefinition": {
+      "description": "Definition of the particle",
+      "type": "object",
+      "properties": {
+        "type": {
+          "$comment": "TODO: check if separate ref is needed",
+          "description": "Type of the particle",
+          "$ref": "/core/types#name-id"
+        },
+        "animation": {
+          "$ref": "/core/types#animation-ref"
+        },
+        "initialVelocity": {
+          "description": "Initial velocity of a particle",
+          "$ref": "/core/types#vec2f"
+        },
+        "finalVelocity": {
+          "description": "Final velocity",
+          "$ref": "/core/types#vec2f"
+        },
+        "approach": {
+          "$comment": "TODO: describe",
+          "description": "",
+          "$ref": "/core/types#vec2f"
+        },
+        "timeToLive": {
+          "description": "Time this particle lives",
+          "type": "number"
+        },
+        "layer": {
+          "$comment": "TODO: describe and define",
+          "description": ""
+        },
+        "collidesForeground": {
+          "description": "Does it collide with foreground",
+          "type": "boolean"
+        },
+        "fullbright": {
+          "$comment": "TODO: describe",
+          "type": "boolean"
+        },
+        "light": {
+          "$comment": "TODO: describe",
+
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/common/projectile-config",
+  "title": "Projectile Config",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "speed": {
+      "description": "Speed of projectile",
+      "type": "integer"
+    },
+    "power": {
+      "description": "",
+      "type": "number"
+    },
+    "level": {
+      "description": "",
+      "type": "integer"
+    },
+    "knockback": {
+      "description": "Knockback power",
+      "type": "integer"
+    },
+    "persistentAudio": {
+      "description": "Audio played while projectile is alive?",
+      "$ref": "/core/types#sound-ref"
+    },
+    "bounces": {
+      "description": "Number of bounces a projectile can make",
+      "type": "integer"
+    },
+    "actionOnCollide": {
+      "description": "Actions on collision",
+      "type": "array",
+      "items": {
+        "$ref": "#action-config"
+      }
+    },
+    "actionOnReap": {
+      "description": "Actions on projectile activation ?",
+      "type": "array",
+      "items": {
+        "$ref": "#action-config"
+      }
+    },
+    "periodicActions": {
+      "description": "Periodic action (while projectile is alive ?)",
+      "type": "array",
+      "items": {
+        "$ref": "#action-config"
+      }
+    }
+  },
+
+  "$defs": {
+    "periodicAction": {
+      "$comment": "TODO: Specify (different actions and according configs)",
+      "$anchor": "action-config"
+    }
+  }
+}

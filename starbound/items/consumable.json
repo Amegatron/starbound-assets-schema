@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "/items/consumable",
+  "title": "Consumable Item",
+  "description": "",
+  "type": "object",
+  "allOf": [
+    { "$ref" :  "/items/generic"}
+  ],
+  "properties": {
+    "foodValue": {
+      "description": "Amount of hunger replenished upon consumption",
+      "type": "integer"
+    },
+    "tooltipKind": {
+      "description": "Type of a dialog used to show item info",
+      "$ref": "/core/types#tooltip-ref"
+    },
+    "builder": {
+      "description": "LUA script used to construct the item",
+      "$ref": "/core/types#script-ref"
+    },
+    "itemAgingScripts": {
+      "description": "Scripts that control item properties based on time",
+      "type": "array",
+      "items": {
+        "$ref": "/core/types#script-ref"
+      }
+    },
+    "rottingMultiplier": {
+      "description": "Food spoiling coefficient (1.0 - full speed, 0.0 - no spoiling)",
+      "type": "number",
+      "minimum": 0.0
+    },
+    "blockingEffects": {
+      "description": "List of effects that block consuming if present",
+      "type": "array",
+      "items": {
+        "$ref" : "/core/types#effect-ref"
+      }
+    },
+    "effects": {
+      "description": "List of effects this consumable gives upon usage",
+      "type": "array",
+      "$comment": "Limit to exactly one item (that's what it is in SB): [[ ... ]]",
+      "items": {
+        "type": "array",
+        "items": {
+          "$ref": "/core/types#effect-descriptor"
+        }
+      }
+    },
+    "emitters": {
+      "description": "List of emitters (?) when consuming",
+      "type": "array",
+      "items": {
+        "$ref": "/core/types#emitter-ref"
+      }
+    },
+    "emote": {
+      "description": "Emote shown upon consuming",
+      "$ref": "/core/types#emote-ref"
+    }
+  }
+}

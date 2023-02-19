@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "items/matitem",
+  "title": "Material Item",
+  "description": "",
+  "type": "object",
+  "allOf": [ { "$ref": "/items/generic"} ],
+  "properties": {
+    "category": {
+      "const": "block"
+    },
+    "materialId" : {
+      "$ref": "/core/types#mat-ref"
+    }
+  }
+}
